@@ -46,3 +46,5 @@ User.init(
     modelName: "user",
   }
 );
+
+module.export = User;
