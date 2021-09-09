@@ -1,6 +1,6 @@
 //require
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("..config/connection");
+const sequelize = require("../config/connection");
 
 class Post extends Model {}
 
@@ -12,7 +12,7 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    titel: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
