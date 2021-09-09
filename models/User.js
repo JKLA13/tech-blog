@@ -25,13 +25,13 @@ User.init(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [4],
       },
     },
   },
