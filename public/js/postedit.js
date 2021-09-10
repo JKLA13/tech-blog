@@ -1,5 +1,5 @@
 //add post function
-async function editFormHandler(event) {
+async function editPostHandler(event) {
   event.preventDefault();
 
   const postTitle = document
@@ -33,13 +33,13 @@ async function editFormHandler(event) {
     alert(response.statusText);
   }
 }
-
+//event listener edit
 document
   .querySelector(".edit-post-form")
   .addEventListener("submit", editFormHandler);
 
 //delete post function
-async function deleteFormHandler(event) {
+async function deletePostHandler(event) {
   event.preventDefault();
 
   const postId = window.location.toString().split("/")[
@@ -62,7 +62,7 @@ async function deleteFormHandler(event) {
     alert(response.statusText);
   }
 }
-
+//event listener delete
 document
   .querySelector(".delete-post-btn")
   .addEventListener("click", deleteFormHandler);

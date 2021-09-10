@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
     });
 });
 
+//get routes
 router.get("/dashboard", withAuth, (req, res) => {
   // console.log(req.session);
   User.findByPk(req.session.user_id, {

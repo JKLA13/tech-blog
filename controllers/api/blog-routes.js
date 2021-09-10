@@ -5,7 +5,7 @@ const postCreatorCheck = require('../../utils/postCreatorCheck')
 const withAuth = (req, res) = require('../../utils/auth');
 
 //create post
-router.post('/', withAuth, async (req, res) => {
+router.post('/api/post', withAuth, async (req, res) => {
     try {
         const dbPostData = await Post.create({
         title: req.body.title,
@@ -19,7 +19,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //create comment
-router.post('/', withAuth, (req, res) => {
+router.post('/api/comment', withAuth, (req, res) => {
     try {
         const dbCommentData = await Comment.create({
             comment_text: req.body.comment_text,
