@@ -3,14 +3,11 @@
     <h3>Blog Post History</h3>
     {{#each user.posts as |post|}}
     </div>
-    {{!-- {{> dashboard post-details post}} --}}
+    {{> dashboard post-details post}}
     {{/each}}
 </div>
 {{/if}}
 {{user.username}}
 <div>
-    <button class="w-150 btn btn-lg btn-primary m-1"
-    onclick="location.href='/postadd'">Add Tech Post</button>
+    <a href="/postadd"><button class="w-150 btn btn-md btn-primary m-1">Add Tech Post</button></a>
 </div>
-
-{{!-- <script src="/js/#"></script> --}}

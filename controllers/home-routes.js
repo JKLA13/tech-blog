@@ -19,18 +19,18 @@ router.get("/", (req, res) => {
 });
 
 router.get("/dashboard", withAuth, (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   User.findByPk(req.session.user_id, {
     include: [Post],
   })
     .then((dbData) => {
-      console.log(dbData);
+      // console.log(dbData);
       const user = dbData.get({ plain: true });
       console.log(user);
       res.render("dashboard", { user });
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json(err);
     });
 });
