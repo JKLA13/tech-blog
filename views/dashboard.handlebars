@@ -1,16 +1,16 @@
- {{#if posts.length}}
+ {{#if user.posts.length}}
 <section>
     <h3>Blog Post History</h3>
-    {{#each posts as |post|}}
+    {{#each user.posts as |post|}}
     </div>
-    {{> dashboard post-info post}}
+    {{!-- {{> dashboard post-info post}} --}}
     {{/each}}
 </div>
 {{/if}}
-
+{{user.username}}
 <div>
     <button class="w-150 btn btn-lg btn-primary m-1"
-    onclick="location.href='/new-blog-post'">Add Tech Post</button>
+    onclick="location.href='/postadd'">Add Tech Post</button>
 </div>
 
 {{!-- <script src="/js/#"></script> --}}
