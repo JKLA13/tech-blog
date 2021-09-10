@@ -58,7 +58,7 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.gallery {
+.blog {
   flex: 4;
   background-color: #fff;
   padding: 50px;
@@ -84,7 +84,7 @@ img {
   height: auto;
 }
 
-.painting {
+/* .painting {
   width: 50%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -94,8 +94,8 @@ img {
 .painting-details {
   text-align: center;
   padding: 10px 20px;
-  font-weight: bold;
-}
+  font-weight: bold; */
+/* } */
 
 /* CARDS */
 .card {
@@ -136,7 +136,7 @@ img {
   font-weight: bold;
 }
 
-.gallery-name {
+.blog-name {
   text-transform: uppercase;
   letter-spacing: 3px;
   text-shadow: 2px 2px 5px var(--secondary);

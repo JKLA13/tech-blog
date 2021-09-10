@@ -41,7 +41,7 @@ router.get("/post/:id", (req, res) => {
         return;
       }
       const post = dbData.get({ plain: true });
-      res.render("single-post", { post });
+      res.render("postsingle", { post });
     })
     .catch((err) => {
       res.status(500).json(err);
