@@ -35,7 +35,7 @@ async function editPostHandler(event) {
 }
 //event listener edit
 document
-  .querySelector(".edit-post-form")
+  .querySelector(".post-edit-form")
   .addEventListener("submit", editFormHandler);
 
 //delete post function
@@ -64,5 +64,5 @@ async function deletePostHandler(event) {
 }
 //event listener delete
 document
-  .querySelector(".delete-post-btn")
+  .querySelector(".post-delete-btn")
   .addEventListener("click", deleteFormHandler);
