@@ -17,12 +17,12 @@ async function newPostHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    document.location.replace("/postadd");
   } else {
     alert(response.statusText);
   }
 }
 //event listener
 document
-  .querySelector("#add-post-form")
+  .querySelector("#new-blog-form")
   .addEventListener("submit", newFormHandler);
