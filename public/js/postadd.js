@@ -24,5 +24,5 @@ async function newPostHandler(event) {
 }
 //event listener
 document
-  .querySelector("#new-blog-form")
-  .addEventListener("submit", newFormHandler);
+  .querySelector("#new-blog-button")
+  .addEventListener("click", newFormHandler);

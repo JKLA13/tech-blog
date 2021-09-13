@@ -23,7 +23,7 @@ async function commentFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace("/comment");
     } else {
       alert(response.statusText);
       document.querySelector("#comment-form").style.display = "block";
