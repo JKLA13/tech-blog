@@ -67,7 +67,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 ## Links
 
 - https://github.com/JKLA13/tech-blog
--
+- https://tech-blog-jkla.herokuapp.com/
 
 ## Tech Used
 
