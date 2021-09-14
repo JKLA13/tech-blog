@@ -2,13 +2,13 @@ const { Post } = require("../models");
 
 const dataPost = [
   {
-    title: "JavaScript",
-    content: "A programming language for web pages and back end servers.",
+    title: "Tech Blog 1",
+    content: "1001110001101010001110001111",
     // user_id: 1,
   },
   {
-    title: "Node.js",
-    content: "a JavaScript runtime built on Chrome's V8 JavaScript engine",
+    title: "Tech Blog 2",
+    content: "1011001100011100011001",
     // user_id: 2,
   },
 ];
