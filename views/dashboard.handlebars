@@ -1,15 +1,18 @@
  {{#if user.posts.length}}
 <section>
+    {{user.username}}
     <h3>Blog Post History</h3>
     {{#each user.posts as |post|}}
+    <div>
+    {{> post-details }}
     </div>
-    {{!-- {{> dashboard post-details post}} --}}
     {{/each}}
-</div>
+
 {{/if}}
-{{user.username}}
+
+</section>
 <div>
-    {{!-- <a href="/views/postadd.handlebars"> --}}
     <button class="w-100 btn btn-md btn-primary m-1" id="new-blog-button">Add Tech Post</button>
-    {{!-- </a> --}}
 </div>
+
+<script src="/js/dashboard.js"></script>

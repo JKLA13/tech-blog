@@ -35,6 +35,23 @@ router.get("/dashboard", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+//get routes
+router.get("/postadd", withAuth, (req, res) => {
+  // console.log(req.session);
+  User.findByPk(req.session.user_id, {
+    include: [Post],
+  })
+    .then((dbData) => {
+      // console.log(dbData);
+      const user = dbData.get({ plain: true });
+      console.log(user);
+      res.render("postadd", { user });
+    })
+    .catch((err) => {
+      // console.log(err);
+      res.status(500).json(err);
+    });
+});
 //signup route
 router.get("/login", (req, res) => {
   res.render("login");

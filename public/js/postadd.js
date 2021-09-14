@@ -1,8 +1,8 @@
 //add a post function
-async function newPostHandler(event) {
+async function newFormHandler(event) {
   event.preventDefault();
-
-  const title = document.querySelector('input[name="post-title"]').value;
+  console.log("hi");
+  const title = document.querySelector('input[name="blog-title"]').value;
   const content = document.querySelector('textarea[name="content"]').value;
 
   const response = await fetch(`/api/posts`, {
@@ -17,12 +17,15 @@ async function newPostHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/postadd");
+    document.location.replace("/dashboard");
   } else {
     alert(response.statusText);
   }
 }
 //event listener
-document
-  .querySelector("#new-blog-button")
-  .addEventListener("click", newFormHandler);
+if (document.querySelector("#add-blog-button")) {
+  console.log("no work?");
+  document
+    .querySelector("#add-blog-button")
+    .addEventListener("click", newFormHandler);
+}
