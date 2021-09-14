@@ -2,7 +2,6 @@
 //require
 const router = require("express").Router();
 const { Post, Comment } = require("../../models");
-const postCreatorCheck = require("../../utils/postCreatorCheck");
 const withAuth = require("../../utils/auth");
 
 //create comment

@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
   })
     .then((dbData) => {
       const userPosts = dbData.map((post) => post.get({ plain: true }));
-      res.render("homepage", { userPosts });
+      res.render("homepage", { posts: userPosts });
     })
     .catch((err) => {
       res.status(500).json(err);

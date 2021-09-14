@@ -1,5 +1,6 @@
 <article class="post">
     {{#each posts as |post| }}
-        {{> post-details }}
+        {{post.title}}
+        {{post.content}}
         {{/each}}
 </article>
