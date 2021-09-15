@@ -5,18 +5,15 @@ const withAuth = require("../../utils/auth");
 
 //get routes
 router.get("/", withAuth, (req, res) => {
-  // console.log(req.session);
   User.findByPk(req.session.user_id, {
     include: [Post],
   })
     .then((dbData) => {
-      // console.log(dbData);
       const user = dbData.get({ plain: true });
       console.log(user);
       res.render("postsingle", { user });
     })
     .catch((err) => {
-      // console.log(err);
       res.status(500).json(err);
     });
 });
@@ -37,7 +34,6 @@ router.post("/", async (req, res) => {
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    // console.log(err);
     res.status(500).json(err);
   }
 });
@@ -77,7 +73,6 @@ router.post("/login", async (req, res) => {
         .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
-    // console.log(err);
     res.status(500).json(err);
   }
 });

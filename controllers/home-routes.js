@@ -34,9 +34,6 @@ router.get("/login", (req, res) => {
 router.get("/postsingle/:id", (req, res) => {
   console.log("test");
   Post.findByPk(req.params.id, {
-    // where: {
-    //   id: req.params.id,
-    // },
     include: [
       User,
       {
@@ -60,35 +57,28 @@ router.get("/postsingle/:id", (req, res) => {
 
 //get routes for dashboard
 router.get("/dashboard", withAuth, (req, res) => {
-  // console.log(req.session);
   User.findByPk(req.session.user_id, {
     include: [Post],
   })
     .then((dbData) => {
-      // console.log(dbData);
       const user = dbData.get({ plain: true });
       console.log(user);
       res.render("dashboard", { user: user, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
-      // console.log(err);
       res.status(500).json(err);
     });
 });
 //get routes for adding a post
 router.get("/postadd", withAuth, (req, res) => {
-  // console.log(req.session);
   User.findByPk(req.session.user_id, {
     include: [Post],
   })
     .then((dbData) => {
-      // console.log(dbData);
       const user = dbData.get({ plain: true });
-      // console.log(user);
       res.render("postadd", { user });
     })
     .catch((err) => {
-      // console.log(err);
       res.status(500).json(err);
     });
 });
@@ -97,9 +87,6 @@ router.get("/postadd", withAuth, (req, res) => {
 router.get("/postedit/:id", withAuth, (req, res) => {
   console.log("test");
   Post.findByPk(req.params.id, {
-    // where: {
-    //   id: req.params.id,
-    // },
     include: [
       User,
       {
