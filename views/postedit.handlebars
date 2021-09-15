@@ -3,12 +3,12 @@
     <form class="card-body post-edit-form" id="post-edit-form">
         <div class="form-floating mb-3">
         <label for="post-title" class="form-label">Blog Title</label>
-        <input name="post-title" type="text" placeholder="{{post.title}}" class="form-input w-150" />
+        <input name="post-title" type="text" value="{{post.title}}" class="form-input w-150" />
         </div>
 
         <div class="form-floating mb-3">
         <label class="form-label" for="content">Blog Content</label>
-        <textarea name="content" type="text" placeholder="{{post.content}}" class="form-input w-150" style="height: 125px"/></textarea>
+        <textarea name="content" type="text" class="form-input w-150" style="height: 125px"/>{{post.content}}</textarea>
         </div>
 
         <button type="submit" class="w-150 btn btn-lg btn-info mb-3">Update Blog Post</button>

@@ -1,8 +1,9 @@
  {{#if user.posts.length}}
- <section>
-<div>
-    {{user.username}}
-    <h3>Blog Post History</h3>
+ <section class="post">
+<div class="card mb-5">
+   
+    <h1>Blog Post History</h1>
+    <h3>Posted by {{user.username}}</h3>
     {{#each user.posts as |post|}}
     <div>
     {{> post-details }}

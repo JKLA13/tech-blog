@@ -8,8 +8,8 @@ async function editPostHandler(event) {
   const postContent = document
     .querySelector('textarea[name="content"]')
     .value.trim();
-  console.log(title);
-  console.log(content);
+  // console.log(postTitle);
+  // console.log(postContent);
 
   const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
@@ -19,8 +19,8 @@ async function editPostHandler(event) {
     method: "PUT",
     body: JSON.stringify({
       post_id: id,
-      title,
-      content,
+      title: postTitle,
+      content: postContent,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -36,13 +36,13 @@ async function editPostHandler(event) {
 //event listener edit
 document
   .querySelector(".post-edit-form")
-  .addEventListener("submit", editFormHandler);
+  .addEventListener("submit", editPostHandler);
 
 //delete post function
 async function deletePostHandler(event) {
   event.preventDefault();
 
-  const postId = window.location.toString().split("/")[
+  const id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
 
@@ -65,4 +65,4 @@ async function deletePostHandler(event) {
 //event listener delete
 document
   .querySelector(".post-delete-btn")
-  .addEventListener("click", deleteFormHandler);
+  .addEventListener("click", deletePostHandler);

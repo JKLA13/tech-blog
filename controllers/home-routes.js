@@ -4,7 +4,7 @@ const { Post, User, Comment } = require("../models");
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 
-//establish routes
+//establish routes for homepage
 router.get("/", (req, res) => {
   Post.findAll({
     include: [User],
@@ -21,7 +21,44 @@ router.get("/", (req, res) => {
     });
 });
 
-//get routes
+//login/signup route
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
+});
+
+//route by id for post edit
+router.get("/postsingle/:id", (req, res) => {
+  console.log("test");
+  Post.findByPk(req.params.id, {
+    // where: {
+    //   id: req.params.id,
+    // },
+    include: [
+      User,
+      {
+        model: Comment,
+        include: [User],
+      },
+    ],
+  })
+    .then((dbData) => {
+      if (!dbData) {
+        res.status(404).json({ message: "Couldn't find post with this id" });
+        return;
+      }
+      const post = dbData.get({ plain: true });
+      res.render("postsingle", { post, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+//get routes for dashboard
 router.get("/dashboard", withAuth, (req, res) => {
   // console.log(req.session);
   User.findByPk(req.session.user_id, {
@@ -38,7 +75,7 @@ router.get("/dashboard", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-//get routes
+//get routes for adding a post
 router.get("/postadd", withAuth, (req, res) => {
   // console.log(req.session);
   User.findByPk(req.session.user_id, {
@@ -47,7 +84,7 @@ router.get("/postadd", withAuth, (req, res) => {
     .then((dbData) => {
       // console.log(dbData);
       const user = dbData.get({ plain: true });
-      console.log(user);
+      // console.log(user);
       res.render("postadd", { user });
     })
     .catch((err) => {
@@ -55,21 +92,14 @@ router.get("/postadd", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-//signup route
-router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/dashboard");
-    return;
-  }
-  res.render("login");
-});
 
-//route by id
-router.get("/post/:id", withAuth, (req, res) => {
-  Post.findByPk({
-    where: {
-      id: req.params.id,
-    },
+//route by id for post edit
+router.get("/postedit/:id", withAuth, (req, res) => {
+  console.log("test");
+  Post.findByPk(req.params.id, {
+    // where: {
+    //   id: req.params.id,
+    // },
     include: [
       User,
       {
@@ -84,7 +114,7 @@ router.get("/post/:id", withAuth, (req, res) => {
         return;
       }
       const post = dbData.get({ plain: true });
-      res.render("postsingle", { post });
+      res.render("postedit", { post });
     })
     .catch((err) => {
       res.status(500).json(err);
